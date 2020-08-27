@@ -1,6 +1,6 @@
 import React from 'react';
-import Row from './row';
 import CodeRow from './codeRow';
+import SourceRow from './sourceRow';
 import Board from './board';
 import sourceColors from '../utils/sourceColors';
 
@@ -23,16 +23,19 @@ const getCodeColor = function () {
 class Controller extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isWon: false, turn: 0 };
+    this.state = { isGameOver: false, isWon: false, turn: 0 };
     this.codeColor = getCodeColor();
   }
 
   render() {
     return (
       <div className='controller'>
-        <CodeRow codeColor={this.codeColor} isWon={this.state.isWon} />
+        <CodeRow
+          codeColor={this.codeColor}
+          isGameOver={this.state.isGameOver}
+        />
         <Board />
-        <Row />
+        <SourceRow />
         <p>You won</p>
       </div>
     );
