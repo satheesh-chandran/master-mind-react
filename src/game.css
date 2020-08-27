@@ -1,0 +1,49 @@
+#root {
+  border: 1px solid;
+  width: 100%;
+  height: 670px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.controller {
+  height: 100%;
+  width: 35%;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+.row {
+  width: 95%;
+  height: 5%;
+  border: 1px solid red;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.hole, .codeHole {
+  height: 80%;
+  width: 8%;
+  border: 1px solid blue;
+  align-self: center;
+  vertical-align: middle;
+}
+
+.board {
+  width: 90%;
+  height: 80%;
+  border: 1px solid brown;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-self: center;
+}
+
+p {
+  margin: 0;
+}
