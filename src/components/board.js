@@ -10,7 +10,7 @@ class Board extends React.Component {
 
   render() {
     const rows = range(0, 10).map(key => {
-      return <Row key={key} />;
+      return <Row key={key} parentId={key} />;
     });
     return <div className='board'>{rows}</div>;
   }

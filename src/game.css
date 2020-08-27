@@ -47,3 +47,14 @@
 p {
   margin: 0;
 }
+
+button {
+  height: 80%;
+  align-self: center;
+  vertical-align: middle;
+}
+
+.invisible {
+  visibility: hidden;
+  pointer-events: none;
+}

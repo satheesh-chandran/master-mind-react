@@ -1,4 +1,6 @@
 import React from 'react';
+import Hole from './hole';
+import range from '../utils/range';
 
 class Row extends React.Component {
   constructor(props) {
@@ -7,7 +9,14 @@ class Row extends React.Component {
   }
 
   render() {
-    return <div className='row'></div>;
+    const holes = range(0, 5).map(id => {
+      return <Hole key={`${this.props.parentId}_${id}`} />;
+    });
+    return (
+      <div className='row'>
+        {holes} <button>CHECK</button>
+      </div>
+    );
   }
 }
 
