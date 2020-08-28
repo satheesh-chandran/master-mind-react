@@ -1,7 +1,8 @@
 import React from 'react';
 import CodeRow from './codeRow';
 import SourceRow from './sourceRow';
-import Board from './board';
+import PlayBoard from './playBoard';
+import ResultBoard from './ResultBoard';
 import sourceColors from '../utils/sourceColors';
 
 const getRandomNumber = (min, max) => {
@@ -23,8 +24,13 @@ const getCodeColor = function () {
 class Controller extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isGameOver: false, isWon: false, turn: 0 };
+    this.state = { isGameOver: false, isWon: false, turn: 0, color: 'white' };
     this.codeColor = getCodeColor();
+    this.selectColor = this.selectColor.bind(this);
+  }
+
+  selectColor(color) {
+    this.setState({ color });
   }
 
   render() {
@@ -34,9 +40,16 @@ class Controller extends React.Component {
           codeColor={this.codeColor}
           isGameOver={this.state.isGameOver}
         />
-        <Board />
-        <SourceRow />
-        <p>You won</p>
+        <div className='board'>
+          <PlayBoard color={this.state.color} />
+          <ResultBoard />
+        </div>
+        <SourceRow
+          codeColor={this.codeColor}
+          isGameOver={this.state.isGameOver}
+          onClick={this.selectColor}
+        />
+        <p>YOU WON</p>
       </div>
     );
   }

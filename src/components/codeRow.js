@@ -11,7 +11,7 @@ class CodeRow extends React.Component {
     const codeHoles = this.props.codeColor.map(color => {
       return <CodeHole isWon={this.props.isWon} key={color} />;
     });
-    return <div className='row'>{codeHoles}</div>;
+    return <div className='codeRow'>{codeHoles}</div>;
   }
 }
 

@@ -8,15 +8,15 @@
 
 .controller {
   height: 100%;
-  width: 35%;
+  width: 50%;
   border: 1px solid;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-content: center;
 }
 
-.row, .sourceRow {
+.playRow, .sourceRow, .codeRow, .resultRow {
   width: 95%;
   height: 5%;
   border: 1px solid red;
@@ -26,22 +26,40 @@
   justify-content: space-evenly;
 }
 
-.hole, .codeHole, .sourceHole {
+.playHole, .codeHole, .sourceHole, .resultHole {
   height: 80%;
   width: 8%;
-  border: 1px solid blue;
   align-self: center;
   vertical-align: middle;
+  box-shadow: 0px 0px 2px 0px black;
+}
+
+.hole:hover, .sourceHole:hover, button:hover {
+  cursor: pointer;
 }
 
 .board {
-  width: 90%;
+  width: 95%;
   height: 80%;
   border: 1px solid brown;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
   align-self: center;
+}
+
+.playBoard {
+  width: 60%;
+}
+
+.resultBoard {
+  width: 35%;
+}
+
+.playBoard, .resultBoard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 p {

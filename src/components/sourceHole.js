@@ -1,19 +1,13 @@
 import React from 'react';
 
-class SourceHole extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div
-        className='sourceHole'
-        style={{ backgroundColor: this.props.color }}
-      ></div>
-    );
-  }
-}
+const SourceHole = function (props) {
+  return (
+    <div
+      className='sourceHole'
+      style={{ backgroundColor: props.color }}
+      onClick={() => props.onClick(props.color)}
+    ></div>
+  );
+};
 
 export default SourceHole;

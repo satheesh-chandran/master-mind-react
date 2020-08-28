@@ -1,5 +1,5 @@
 import React from 'react';
-import Row from './row';
+import PlayRow from './PlayRow';
 import range from '../utils/range';
 
 class Board extends React.Component {
@@ -10,9 +10,9 @@ class Board extends React.Component {
 
   render() {
     const rows = range(0, 10).map(key => {
-      return <Row key={key} parentId={key} />;
+      return <PlayRow key={key} parentId={key} color={this.props.color} />;
     });
-    return <div className='board'>{rows}</div>;
+    return <div className='playBoard'>{rows}</div>;
   }
 }
 
