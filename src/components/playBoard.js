@@ -16,6 +16,7 @@ class Board extends React.Component {
           color={this.props.color}
           turn={this.props.turn}
           checkColors={this.props.checkColors}
+          isGameOver={this.props.isGameOver}
         />
       );
     });

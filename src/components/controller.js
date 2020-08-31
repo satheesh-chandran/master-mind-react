@@ -22,6 +22,13 @@ const getCodeColor = function () {
   return codeColor;
 };
 
+const parseStatusText = function (moves, isGameOver, isWon) {
+  let innerText = `${10 - moves} MOVES LEFT`;
+  if (isGameOver) innerText = 'YOU LOST';
+  if (isWon) innerText = 'YOU WON';
+  return innerText;
+};
+
 class Controller extends React.Component {
   constructor(props) {
     super(props);
@@ -58,26 +65,26 @@ class Controller extends React.Component {
   }
 
   render() {
+    const { isGameOver, turn, isWon, color } = this.state;
+    const boardClass = isGameOver ? 'inActive' : '';
     return (
       <div className='controller'>
-        <CodeRow
-          codeColor={this.codeColor}
-          isGameOver={this.state.isGameOver}
-        />
-        <div className='board'>
+        <CodeRow codeColor={this.codeColor} isGameOver={isGameOver} />
+        <div className={`board ${boardClass}`}>
           <PlayBoard
-            color={this.state.color}
-            turn={this.state.turn}
+            color={color}
+            turn={turn}
             checkColors={this.checkColors}
+            isGameOver={isGameOver}
           />
           <ResultBoard checkResult={this.state.checkResult} />
         </div>
         <SourceRow
           codeColor={this.codeColor}
-          isGameOver={this.state.isGameOver}
+          isGameOver={isGameOver}
           onClick={this.selectColor}
         />
-        <p>YOU WON</p>
+        <p>{parseStatusText(turn, isGameOver, isWon)}</p>
       </div>
     );
   }

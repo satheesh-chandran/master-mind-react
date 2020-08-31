@@ -64,6 +64,10 @@ p {
   margin: 0;
 }
 
+p, h1 {
+  color: #1c46bc;
+}
+
 button {
   height: 80%;
   align-self: center;

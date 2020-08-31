@@ -25,20 +25,20 @@ class PlayRow extends React.Component {
   }
 
   render() {
+    const { parentId, color, turn, isGameOver } = this.props;
     const holes = range(0, 5).map(id => (
       <PlayHole
-        key={`${this.props.parentId}_${id}`}
-        color={this.props.color}
+        key={`${parentId}_${id}`}
+        color={color}
         position={id}
         onClick={this.storeColors}
       />
     ));
-    const isRowActive = this.props.parentId === this.props.turn;
     return (
-      <div className={`playRow ${isRowActive ? '' : 'inActive'}`}>
-        {holes}{' '}
+      <div className={`playRow ${parentId === turn ? '' : 'inActive'}`}>
+        {holes}
         <button
-          className={isRowActive ? '' : 'invisible'}
+          className={parentId === turn && !isGameOver ? '' : 'invisible'}
           onClick={this.submitColors}
         >
           CHECK
