@@ -18,27 +18,9 @@ const getCodeColor = function () {
     codeColor.push(colorCopy[colorIndex]);
     colorCopy.splice(colorIndex, 1);
   }
+  console.log(codeColor);
   return codeColor;
 };
-
-// check(colors) {
-//   const result = [0, 0];
-//   colors.forEach(color => this.codeColor.includes(color) && result[0]++);
-//   colors.forEach((color, index) => {
-//     color === this.codeColor[index] && result[0]-- && result[1]++;
-//     if (result[1] === 5) {
-//       this.isCracked = true;
-//     }
-//   });
-//   if (this.activeRow === 10) {
-//     this.isGameOver = true;
-//   }
-//   this.activeRow++;
-//   const checkStatus = { result, activeRow: this.activeRow };
-//   checkStatus.isCracked = this.isCracked;
-//   checkStatus.gameOver = this.isGameOver;
-//   return checkStatus;
-// }
 
 class Controller extends React.Component {
   constructor(props) {
@@ -64,9 +46,10 @@ class Controller extends React.Component {
       return color === this.codeColor[index] && result[0]-- && result[1]++;
     });
     if (result[1] === 5) this.setState({ isWon: true });
+    const { turn, checkResult } = this.state;
     this.setState({
-      checkResult: this.state.checkResult.concat(result),
-      turn: this.state.turn + 1
+      checkResult: checkResult.concat([result]),
+      turn: turn + 1
     });
   }
 

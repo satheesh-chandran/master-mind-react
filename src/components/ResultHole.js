@@ -1,14 +1,9 @@
 import React from 'react';
 
-class ResultHole extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { color: 'white' };
-  }
-
-  render() {
-    return <div className='resultHole'></div>;
-  }
-}
+const ResultHole = function (props) {
+  return (
+    <div className='resultHole' style={{ backgroundColor: props.color }}></div>
+  );
+};
 
 export default ResultHole;
