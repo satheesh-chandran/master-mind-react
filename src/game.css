@@ -24,7 +24,7 @@
   justify-content: space-evenly;
 }
 
-.playHole, .hole, .sourceHole, .hole {
+.playHole, .hole {
   height: 80%;
   width: 8%;
   align-self: center;
@@ -32,7 +32,7 @@
   box-shadow: 0px 0px 2px 0px black;
 }
 
-.playHole:hover, .sourceHole:hover, button:hover {
+.playHole:hover, .sourceRow .hole:hover, button:hover {
   cursor: pointer;
 }
 
