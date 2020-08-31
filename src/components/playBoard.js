@@ -2,26 +2,18 @@ import React from 'react';
 import PlayRow from './PlayRow';
 import range from '../utils/range';
 
-class Board extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const PlayBoard = function ({ color, turn, checkColors, isGameOver }) {
+  const rows = range(0, 10).map(key => (
+    <PlayRow
+      key={key}
+      parentId={key}
+      color={color}
+      turn={turn}
+      checkColors={checkColors}
+      isGameOver={isGameOver}
+    />
+  ));
+  return <div className='playBoard'>{rows}</div>;
+};
 
-  render() {
-    const rows = range(0, 10).map(key => {
-      return (
-        <PlayRow
-          key={key}
-          parentId={key}
-          color={this.props.color}
-          turn={this.props.turn}
-          checkColors={this.props.checkColors}
-          isGameOver={this.props.isGameOver}
-        />
-      );
-    });
-    return <div className='playBoard'>{rows}</div>;
-  }
-}
-
-export default Board;
+export default PlayBoard;

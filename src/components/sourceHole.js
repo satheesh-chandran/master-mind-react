@@ -1,13 +1,11 @@
 import React from 'react';
 
-const SourceHole = function (props) {
-  return (
-    <div
-      className='sourceHole'
-      style={{ backgroundColor: props.color }}
-      onClick={() => props.onClick(props.color)}
-    ></div>
-  );
-};
+const SourceHole = ({ color, onClick }) => (
+  <div
+    className='sourceHole'
+    style={{ backgroundColor: color }}
+    onClick={() => onClick(color)}
+  ></div>
+);
 
 export default SourceHole;
