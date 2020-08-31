@@ -4,11 +4,13 @@ class PlayHole extends React.Component {
   constructor(props) {
     super(props);
     this.state = { color: 'white' };
-    this.onClick = this.onClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  onClick() {
-    this.setState({ color: this.props.color });
+  handleClick() {
+    const { onClick, color, position } = this.props;
+    this.setState({ color });
+    onClick(color, position);
   }
 
   render() {
@@ -16,7 +18,7 @@ class PlayHole extends React.Component {
       <div
         className='playHole'
         style={{ backgroundColor: this.state.color }}
-        onClick={this.onClick}
+        onClick={this.handleClick}
       ></div>
     );
   }
