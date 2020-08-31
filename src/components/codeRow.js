@@ -8,9 +8,10 @@ class CodeRow extends React.Component {
   }
 
   render() {
-    const codeHoles = this.props.codeColor.map(color => {
-      return <CodeHole isWon={this.props.isWon} key={color} />;
-    });
+    const { codeColor, isGameOver } = this.props;
+    const codeHoles = codeColor.map((color, index) => (
+      <CodeHole key={color} color={isGameOver ? codeColor[index] : 'white'} />
+    ));
     return <div className='codeRow'>{codeHoles}</div>;
   }
 }

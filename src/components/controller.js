@@ -39,13 +39,13 @@ class Controller extends React.Component {
 
   checkColors(colors, rowId) {
     if (this.state.turn !== rowId) return;
-    if (this.state.turn === 10) this.setState({ isGameOver: true });
+    if (this.state.turn >= 9) this.setState({ isGameOver: true });
     const result = [0, 0];
     colors.forEach(color => this.codeColor.includes(color) && result[0]++);
     colors.forEach((color, index) => {
       return color === this.codeColor[index] && result[0]-- && result[1]++;
     });
-    if (result[1] === 5) this.setState({ isWon: true });
+    if (result[1] === 5) this.setState({ isWon: true, isGameOver: true });
     const { turn, checkResult } = this.state;
     this.setState({
       checkResult: checkResult.concat([result]),

@@ -1,8 +1,7 @@
 import React from 'react';
 
-const CodeHole = function (props) {
-  const backgroundColor = props.isGameOver ? props.key : 'white';
-  return <div className='codeHole' style={{ backgroundColor }}></div>;
-};
+const CodeHole = props => (
+  <div className='codeHole' style={{ backgroundColor: props.color }}></div>
+);
 
 export default CodeHole;
