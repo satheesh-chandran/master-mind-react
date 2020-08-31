@@ -24,7 +24,7 @@
   justify-content: space-evenly;
 }
 
-.playHole, .codeHole, .sourceHole, .resultHole {
+.playHole, .hole, .sourceHole, .hole {
   height: 80%;
   width: 8%;
   align-self: center;
