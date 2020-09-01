@@ -1,14 +1,9 @@
 import React from 'react';
 
-const Hole = ({ color, onClick }) => {
-  const clickHandler = onClick ? () => onClick(color) : () => {};
-  return (
-    <div
-      className='hole'
-      style={{ backgroundColor: color }}
-      onClick={clickHandler}
-    ></div>
-  );
-};
-
-export default Hole;
+export default ({ color, onClick }) => (
+  <div
+    className='hole'
+    style={{ backgroundColor: color }}
+    onClick={onClick ? () => onClick(color) : () => {}}
+  ></div>
+);

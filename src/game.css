@@ -17,11 +17,10 @@
 .playRow, .sourceRow, .codeRow, .resultRow {
   width: 95%;
   height: 5%;
-  border: 1px solid red;
   align-self: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .playHole, .hole {
@@ -30,6 +29,7 @@
   align-self: center;
   vertical-align: middle;
   box-shadow: 0px 0px 2px 0px black;
+  border-radius: 4px;
 }
 
 .playHole:hover, .sourceRow .hole:hover, button:hover {
@@ -39,7 +39,6 @@
 .board {
   width: 95%;
   height: 80%;
-  border: 1px solid brown;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -72,6 +71,15 @@ button {
   height: 80%;
   align-self: center;
   vertical-align: middle;
+  color: #1c46bc;
+  border: 1px solid #1c46bc;
+  background-color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #1c46bc;
+  color: white;
 }
 
 .invisible {
@@ -80,6 +88,6 @@ button {
 }
 
 .inActive {
-  opacity: 0.8;
+  opacity: 0.6;
   pointer-events: none;
 }

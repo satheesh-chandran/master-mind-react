@@ -1,5 +1,5 @@
 import React from 'react';
-import Controller from './components/controller'
+import Controller from './components/Controller'
 import './App.css';
 
 const App = function (props) {

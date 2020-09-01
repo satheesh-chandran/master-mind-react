@@ -1,6 +1,6 @@
 import React from 'react';
-import range from '../utils/range';
 import Hole from './Hole';
+import range from '../utils/range';
 
 const createList = (length, fill) => new Array(length).fill(fill);
 

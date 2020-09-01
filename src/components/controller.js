@@ -1,7 +1,7 @@
 import React from 'react';
-import CodeRow from './codeRow';
-import SourceRow from './sourceRow';
-import PlayBoard from './playBoard';
+import CodeRow from './CodeRow';
+import SourceRow from './SourceRow';
+import PlayBoard from './PlayBoard';
 import ResultBoard from './ResultBoard';
 import sourceColors from '../utils/sourceColors';
 
