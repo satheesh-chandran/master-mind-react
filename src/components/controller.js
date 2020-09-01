@@ -4,6 +4,7 @@ import SourceRow from './SourceRow';
 import PlayBoard from './PlayBoard';
 import ResultBoard from './ResultBoard';
 import sourceColors from '../utils/sourceColors';
+const { CHANCES, NUM_OF_COLORS } = require('../utils/constants');
 
 const getRandomNumber = (min, max) => {
   const randomNumber = Math.random() * (max - min);
@@ -13,17 +14,16 @@ const getRandomNumber = (min, max) => {
 const getCodeColor = function () {
   const colorCopy = sourceColors.slice();
   const codeColor = [];
-  while (codeColor.length < 5) {
+  while (codeColor.length < NUM_OF_COLORS) {
     const colorIndex = getRandomNumber(0, colorCopy.length);
     codeColor.push(colorCopy[colorIndex]);
     colorCopy.splice(colorIndex, 1);
   }
-  console.log(codeColor);
   return codeColor;
 };
 
 const parseStatusText = function (moves, isGameOver, isWon) {
-  let innerText = `${10 - moves} MOVES LEFT`;
+  let innerText = `${CHANCES - moves} MOVES LEFT`;
   if (isGameOver) innerText = 'YOU LOST';
   if (isWon) innerText = 'YOU WON';
   return innerText;
@@ -35,7 +35,7 @@ class Controller extends React.Component {
     this.state = {
       turn: 0,
       isWon: false,
-      color: 'white',
+      color: undefined,
       checkResult: [],
       isGameOver: false
     };
@@ -46,18 +46,16 @@ class Controller extends React.Component {
 
   checkColors(colors, rowId) {
     if (this.state.turn !== rowId) return;
-    if (this.state.turn >= 9) this.setState({ isGameOver: true });
+    if (this.state.turn >= CHANCES - 1) this.setState({ isGameOver: true });
     const result = [0, 0];
     colors.forEach(color => this.codeColor.includes(color) && result[0]++);
     colors.forEach((color, index) => {
       return color === this.codeColor[index] && result[0]-- && result[1]++;
     });
-    if (result[1] === 5) this.setState({ isWon: true, isGameOver: true });
+    if (result[1] === NUM_OF_COLORS)
+      this.setState({ isWon: true, isGameOver: true });
     const { turn, checkResult } = this.state;
-    this.setState({
-      checkResult: checkResult.concat([result]),
-      turn: turn + 1
-    });
+    this.setState({ checkResult: [...checkResult, result], turn: turn + 1 });
   }
 
   selectColor(color) {
@@ -84,7 +82,7 @@ class Controller extends React.Component {
           isGameOver={isGameOver}
           onClick={this.selectColor}
         />
-        <p>{parseStatusText(turn, isGameOver, isWon)}</p>
+        <h3>{parseStatusText(turn, isGameOver, isWon)}</h3>
       </div>
     );
   }

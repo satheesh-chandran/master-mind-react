@@ -59,11 +59,11 @@
   justify-content: space-evenly;
 }
 
-p {
+h3 {
   margin: 0;
 }
 
-p, h1 {
+h3, h1 {
   color: #1c46bc;
 }
 
