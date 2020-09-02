@@ -1,9 +1,10 @@
 import React from 'react';
+import { DEFAULT } from '../utils/constants';
 
 class PlayHole extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { color: 'white' };
+    this.state = { color: DEFAULT };
     this.handleClick = this.handleClick.bind(this);
   }
 

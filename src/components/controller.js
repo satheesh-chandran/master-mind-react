@@ -64,11 +64,10 @@ class Controller extends React.Component {
 
   render() {
     const { isGameOver, turn, isWon, color } = this.state;
-    const boardClass = isGameOver ? 'inActive' : '';
     return (
       <div className='controller'>
         <CodeRow codeColor={this.codeColor} isGameOver={isGameOver} />
-        <div className={`board ${boardClass}`}>
+        <div className={`board ${isGameOver ? 'inActive' : ''}`}>
           <PlayBoard
             color={color}
             turn={turn}
