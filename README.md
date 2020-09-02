@@ -1,3 +1,5 @@
+This project is deployed on github pages. To play [click here](https://satheesh-chandran.github.io/master-mind-react/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
