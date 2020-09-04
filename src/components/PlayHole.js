@@ -1,28 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DEFAULT } from '../utils/constants';
 
-class PlayHole extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { color: DEFAULT };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    const { onClick, color, position } = this.props;
-    this.setState({ color });
-    onClick(color, position);
-  }
-
-  render() {
-    return (
-      <div
-        className='playHole'
-        style={{ backgroundColor: this.state.color }}
-        onClick={this.handleClick}
-      ></div>
-    );
-  }
-}
+const PlayHole = function ({ onClick, color, position }) {
+  const [backgroundColor, setColor] = useState(DEFAULT);
+  return (
+    <div
+      className='playHole'
+      style={{ backgroundColor }}
+      onClick={() => {
+        setColor(color);
+        onClick(color, position);
+      }}
+    ></div>
+  );
+};
 
 export default PlayHole;
